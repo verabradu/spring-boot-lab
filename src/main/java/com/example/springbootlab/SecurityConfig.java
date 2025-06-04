@@ -25,7 +25,7 @@ public class SecurityConfig {
                 // Configurarea autorizatilor pentru request-uri HTTP
                 .authorizeHttpRequests(auth -> auth
                         // Oricine poate accesa ruta/public fara autentificare
-                        .requestMatchers("/public").permitAll()
+                        .requestMatchers("/public","/actuator/**").permitAll()
                         .anyRequest().authenticated()
                 )
                 .formLogin(Customizer.withDefaults()); // Se activeaza login-ul cu formular web(default HTML logon page)
